@@ -31,8 +31,8 @@ public class NumeroMuitoGrande {
                         x=1;
                     }
                 }
+                j++;
                 l++;
-            
             }
         i++;
         }
