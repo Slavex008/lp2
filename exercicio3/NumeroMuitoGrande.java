@@ -6,7 +6,6 @@ public class NumeroMuitoGrande {
     public void mult(){
         int i=0, x=0, l=0, j=0, mult[];
         mult = new int [30];
-        String k="";
         //calculo da multiplicacao
         while (i<= (this.tamanho1 - 1)){
             l = i;
@@ -38,21 +37,18 @@ public class NumeroMuitoGrande {
         }
         i=0;
         //saida da multiplicacao
+        System.out.println("A multiplicacao é: ");
         if (x!=1){
-            while (i<=29){
-                k = k + this.MUL[i];
-                i++;
-            }
-            System.out.println("A multiplicacao é: " + k);
+            System.out.print(this.MUL[i]);
         }
         else{
             System.out.println("Mais de 30 casas! Valor não será imprimido!");
         }
+        System.out.println();
 
     }
     public void soma(){
         int i=0, x=0;
-        String k="";
         //calculo da soma
         while (i<=29){
             this.SOM[i] = this.SOM[i] + this.V1[i] + this.V2[i];
@@ -67,18 +63,20 @@ public class NumeroMuitoGrande {
             }
             i++;
         }
-        i=0;
+        System.out.println(this.V1[2]);
+        i=29;
         //saida da soma
+        System.out.println("A soma é: ");
         if (x!=1){
-            while (i<=29){
-                k = k + this.SOM[i];
-                i++;
+            while (i>=0){
+               System.out.print(this.SOM[i]);
+               i--;
             }
-            System.out.println("A soma é: " + k);
         }
         else{
             System.out.println("Mais de 30 casas! Valor não será imprimido!");
         }
+        System.out.println();
     }
     
     public static void main(String[] args) {
@@ -110,37 +108,33 @@ public class NumeroMuitoGrande {
         while (i <= 29){
             X.SOM[i] = 0;
             i++;
-        }
-        
-        
+        }    
         //ler primeiro valor
         System.out.println("Digite o valor 1 (máximo de 30 digitos): ");
         String valor = input.next();
 	X.tamanho1 = valor.length();        
         i = X.tamanho1 - 1;
-	while ((i >= 0) && (j <= i)){
+	while (i >= 0){
             char caracter = valor.charAt(i);
             X.V1[j] = Character.getNumericValue(caracter);
             i--;
             j++;
-        }        
-		valor="";
+        }       
+	valor="";
         i=0;
         //ler segundo valor
         System.out.println("Digite o valor 2 (máximo de 30 digitos): ");
         valor = input.next();
 	X.tamanho2 = valor.length();
         i = X.tamanho2 - 1;
-        while ((i >= 0) && (j <= i)){
+        while (i >= 0){
             char caracter = valor.charAt(i);
             X.V2[j] = Character.getNumericValue(caracter);
             i--;
             j++;
                     
         }
-        i=0;
         X.soma();
         X.mult();
     }
-    
 }
